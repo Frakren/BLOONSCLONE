@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public int round, gold, life;
     public int countBloons, maxBloons;
     public TextMeshProUGUI[] texts;
-    public GameObject bloons,messageError,Canvas;
+    public GameObject bloons, messageError, Canvas;
     public float timer, startTimer;
     public Transform startPoint;
     public GameObject[] Monkeys;
@@ -23,11 +23,21 @@ public class GameManager : MonoBehaviour
     }
     public void SelectMonkey(int index)
     {
-        current = Monkeys[index];
+        if (!current)
+        {
+            if ((gold - Monkeys[index].GetComponent<Monkey>().cost) >= 0)
+            {
+                current = Instantiate(Monkeys[index]);
+            }
+            else
+            {
+                MessageERROR();
+            }
+        } 
     }
     public void MessageERROR()
     {
-        GameObject @object= Instantiate(messageError, Canvas.transform);
+        GameObject @object = Instantiate(messageError, Canvas.transform);
         Destroy(@object, 3f);
     }
     public void PressStart()
@@ -58,6 +68,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         while (hasStard)
         {
+            SetRoundOnScreen();
             if (timer >= 0)
             {
                 timer -= Time.deltaTime;
@@ -179,7 +190,7 @@ public class GameManager : MonoBehaviour
                         @object.GetComponent<AIEnemy>().damage = 50;
                         @object.GetComponent<AIEnemy>().life = 100;
                         @object.GetComponent<AIEnemy>().amountGold = 500;
-                    } 
+                    }
                 }
             }
             yield return null;

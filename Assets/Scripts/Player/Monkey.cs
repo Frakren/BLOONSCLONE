@@ -32,7 +32,7 @@ public class Monkey : MonoBehaviour
                 nearest = item;
             }
         }
-        if (nearest != null && shortDist <= range)
+        if (nearest != null && shortDist < range)
         {
             target = nearest.transform;
         }

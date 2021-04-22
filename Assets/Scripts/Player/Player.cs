@@ -9,28 +9,26 @@ public class Player : MonoBehaviour
     [SerializeField] GameManager manager;
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out hit, Mathf.Infinity);
+        if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray,out hit,Mathf.Infinity) && hit.collider.CompareTag("CanPlace"))
+            if (hit.collider && hit.collider.CompareTag("CanPlace") && manager.current)
             {
-                if(manager.current)
-                {
-                    if ((manager.gold - manager.current.GetComponent<Monkey>().cost)>= 0)
-                    {
-                        manager.gold -= manager.current.GetComponent<Monkey>().cost;
-                        manager.SetGoldOnScreen();
-                        GameObject @object = Instantiate(manager.current);
-                        @object.transform.position = hit.point + Vector3.up;
-                    }
-                    else
-                    {
-                        manager.MessageERROR();
-                    }
-                }
+                manager.gold -= manager.current.GetComponent<Monkey>().cost;
+                manager.SetGoldOnScreen();
+                manager.current.transform.position = hit.point + Vector3.up;
+                manager.current = null;
+            }
+        }
+        else
+        {
+            if(manager.current)
+            {
+                manager.current.transform.position = hit.point + Vector3.up;
             }
         }
     }

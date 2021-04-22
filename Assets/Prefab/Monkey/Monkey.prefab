@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 481358259991700559}
   - component: {fileID: 481358259991700556}
   - component: {fileID: 481358259991700557}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 481358260494528947}
   - component: {fileID: 481358260494528945}
   - component: {fileID: 481358260494528944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Monkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481358261683527906}
   - component: {fileID: 481358261683527907}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
