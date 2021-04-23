@@ -9,15 +9,19 @@ public class Monkey : MonoBehaviour
     public GameObject projetil,gun,rangeSprite;
     public int cost,damage;
     public float range,timerProjetil;
+    public float MaxTimer;
     public Color color;
-    public bool dontAttack;
+    public bool dontAttack, onRange;
     private Transform target;
+    private SphereCollider trigger;
     private void Start()
     {
         dontAttack = true;
         transform.GetChild(0).GetComponent<MeshRenderer>().material.color = color;
+        trigger = GetComponent<SphereCollider>();
         gun.GetComponent<MeshRenderer>().material.color = color;
         rangeSprite.transform.localScale *= range;
+        trigger.radius = range/2;
         InvokeRepeating("FindNearestTarget",0f,0.5f);
     }
     void FindNearestTarget()
@@ -45,13 +49,13 @@ public class Monkey : MonoBehaviour
     }
     private void Update()
     {
-        if (target != null && !dontAttack)
+        if (target != null && !dontAttack && onRange)
         {
             transform.LookAt(target);
             if (timerProjetil <= 0)
             {
-                timerProjetil = 0.05f;
-                GameObject bullet = Instantiate(projetil, gun.transform);
+                timerProjetil = MaxTimer;
+                GameObject bullet = Instantiate(projetil, gun.transform.position, Quaternion.identity);
                 bullet.GetComponent<Bullet>().parent = this;
                 bullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward) * 10;
                 Destroy(bullet, 3f);
@@ -60,6 +64,20 @@ public class Monkey : MonoBehaviour
             {
                 timerProjetil -= Time.deltaTime;
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            onRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            onRange = false;
         }
     }
 }
