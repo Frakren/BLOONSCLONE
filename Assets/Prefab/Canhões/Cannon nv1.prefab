@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 481358260494528949}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &481358259991700559
 MeshFilter:
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481358259991700555}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &481358259991700556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 481358260494528945}
   - component: {fileID: 481358260494528944}
   m_Layer: 2
-  m_Name: Cannon nv4
+  m_Name: Cannon nv1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ Transform:
   m_LocalPosition: {x: -4.69, y: 2.58, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5771173440279656393}
   - {fileID: 481358259991700554}
   - {fileID: 481358261683527906}
   m_Father: {fileID: 0}
@@ -136,7 +137,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481358260494528942}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &481358260494528947
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -188,15 +189,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4179b8b95ec3b4b999704cc0c534a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monkeyType: 3
+  monkeyType: 0
   projetil: {fileID: 485232628648855946, guid: 30b7b2d73198a9e438f56fb8962a1605, type: 3}
   gun: {fileID: 481358259991700555}
   rangeSprite: {fileID: 481358261683527904}
-  cost: 900
-  damage: 5
+  cost: 200
+  damage: 1
   range: 7
   timerProjetil: 0
-  color: {r: 1, g: 0.44463068, b: 0, a: 0}
+  color: {r: 0.07342471, g: 0.4716981, b: 0.08013609, a: 0}
 --- !u!136 &481358260494528944
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -240,7 +241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 481358260494528949}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &481358261683527907
 SpriteRenderer:
@@ -292,3 +293,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &6313460465065578530
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 481358260494528949}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c089bc065909de540aaebce2a11b1ff5,
+        type: 3}
+      propertyPath: m_Name
+      value: cannon7_03
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c089bc065909de540aaebce2a11b1ff5, type: 3}
+--- !u!4 &5771173440279656393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c089bc065909de540aaebce2a11b1ff5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6313460465065578530}
+  m_PrefabAsset: {fileID: 0}
