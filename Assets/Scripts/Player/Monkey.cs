@@ -13,7 +13,7 @@ public class Monkey : MonoBehaviour
     private Transform target;
     private void Start()
     {
-        GetComponent<MeshRenderer>().material.color = color;
+        transform.GetChild(0).GetComponent<MeshRenderer>().material.color = color;
         gun.GetComponent<MeshRenderer>().material.color = color;
         rangeSprite.transform.localScale *= range;
         InvokeRepeating("FindNearestTarget",0f,0.5f);
