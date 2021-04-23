@@ -198,8 +198,10 @@ MonoBehaviour:
   damage: 3
   range: 7
   timerProjetil: 0
+  MaxTimer: 0.025
   color: {r: 0.2820336, g: 0, b: 0.6981132, a: 0}
   dontAttack: 0
+  onRange: 0
 --- !u!136 &481358260494528944
 CapsuleCollider:
   m_ObjectHideFlags: 0

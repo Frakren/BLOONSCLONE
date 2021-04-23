@@ -199,7 +199,7 @@ MonoBehaviour:
   damage: 2
   range: 7
   timerProjetil: 0
-  MaxTimer: 0.01
+  MaxTimer: 0.05
   color: {r: 0.024430392, g: 0.5754717, b: 0.55432975, a: 0}
   dontAttack: 0
   onRange: 0
