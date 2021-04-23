@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 481358260494528945}
   - component: {fileID: 481358260494528944}
   m_Layer: 2
-  m_Name: Monkey 3
+  m_Name: Cannon nv4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   damage: 5
   range: 7
   timerProjetil: 0
-  color: {r: 0, g: 1, b: 1, a: 0}
+  color: {r: 1, g: 0.44463068, b: 0, a: 0}
 --- !u!136 &481358260494528944
 CapsuleCollider:
   m_ObjectHideFlags: 0
