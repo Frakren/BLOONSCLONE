@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
             if (hit.collider && hit.collider.CompareTag("CanPlace") && manager.current)
             {
                 manager.gold -= manager.current.GetComponent<Monkey>().cost;
+                manager.current.GetComponent<Monkey>().dontAttack = false;
+                manager.current.layer = 0;
                 manager.SetGoldOnScreen();
                 manager.current.transform.position = hit.point + Vector3.up;
                 manager.current = null;

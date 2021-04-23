@@ -10,9 +10,11 @@ public class Monkey : MonoBehaviour
     public int cost,damage;
     public float range,timerProjetil;
     public Color color;
+    public bool dontAttack;
     private Transform target;
     private void Start()
     {
+        dontAttack = true;
         transform.GetChild(0).GetComponent<MeshRenderer>().material.color = color;
         gun.GetComponent<MeshRenderer>().material.color = color;
         rangeSprite.transform.localScale *= range;
@@ -43,7 +45,7 @@ public class Monkey : MonoBehaviour
     }
     private void Update()
     {
-        if (target != null)
+        if (target != null && !dontAttack)
         {
             transform.LookAt(target);
             if (timerProjetil <= 0)
