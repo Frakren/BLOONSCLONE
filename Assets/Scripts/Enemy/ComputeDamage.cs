@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ComputeDamage : MonoBehaviour
 {
+    public GameObject gameOverScreen;
     public GameManager gameManager;
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,7 @@ public class ComputeDamage : MonoBehaviour
             else
             {
                 gameManager.life = 0;
+                gameOverScreen.SetActive(true);
             }
             gameManager.SetLifeOnScreen();
             Destroy(other.gameObject);

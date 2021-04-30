@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,7 +34,11 @@ public class GameManager : MonoBehaviour
             {
                 MessageERROR();
             }
-        } 
+        }
+    }
+    public void ResetMapa()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void MessageERROR()
     {
@@ -78,122 +83,83 @@ public class GameManager : MonoBehaviour
                 timer = startTimer;
                 if (round < 18)
                 {
-                    if (needRestart)
-                    {
-                        countBloons = maxBloons + (int)(maxBloons * 0.2f);
-                        yield return new WaitForSeconds(3f);
-                        needRestart = false;
-                    }
-                    if (countBloons < 0)
-                    {
-                        round++;
-                        needRestart = true;
-                    }
-                    else
-                    {
-                        countBloons--;
-                        GameObject @object = Instantiate(bloons, startPoint);
-                        @object.GetComponent<MeshRenderer>().material.color = Color.red;
-                        @object.GetComponent<AIEnemy>().damage = 1;
-                        @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Normal;
-                        @object.GetComponent<AIEnemy>().life = 1;
-                        @object.GetComponent<AIEnemy>().amountGold = 5;
-                    }
+                    GameObject @object = Instantiate(bloons, startPoint);
+                    @object.GetComponent<MeshRenderer>().material.color = Color.red;
+                    @object.GetComponent<AIEnemy>().damage = 1;
+                    @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Normal;
+                    @object.GetComponent<AIEnemy>().life = 1;
+                    @object.GetComponent<AIEnemy>().amountGold = 5;
                 }
-                else if (round >= 18)
+                else if (round >= 18 && round < 27)
                 {
-                    if (needRestart)
-                    {
-                        countBloons += maxBloons + (int)(maxBloons * 0.35f * 100f);
-                        yield return new WaitForSeconds(3f);
-                        needRestart = false;
-                    }
-                    if (countBloons < 0)
-                    {
-                        round++;
-                        needRestart = true;
-                        GameObject @object = Instantiate(bloons, startPoint);
-                        @object.GetComponent<MeshRenderer>().material.color = Color.blue;
-                        @object.GetComponent<AIEnemy>().damage = 3;
-                        @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Masked;
-                        @object.GetComponent<AIEnemy>().life = 10;
-                        @object.GetComponent<AIEnemy>().amountGold = 20;
-                    }
+                    GameObject @object = Instantiate(bloons, startPoint);
+                    @object.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                    @object.GetComponent<AIEnemy>().damage = 3;
+                    @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Normal;
+                    @object.GetComponent<AIEnemy>().life = 5;
+                    @object.GetComponent<AIEnemy>().amountGold = 25;
                 }
-                else if (round >= 36)
+                else if (round >= 27 && round < 36)
                 {
-                    if (needRestart)
-                    {
-                        countBloons += maxBloons + (int)(maxBloons * 0.4f);
-                        yield return new WaitForSeconds(3f);
-                        needRestart = false;
-                    }
-                    if (countBloons < 0)
-                    {
-                        round++;
-                        needRestart = true;
-                    }
-                    else
-                    {
-                        countBloons--;
-                        GameObject @object = Instantiate(bloons, startPoint);
-                        @object.GetComponent<MeshRenderer>().material.color = Color.yellow;
-                        @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Endure;
-                        @object.GetComponent<AIEnemy>().damage = 5;
-                        @object.GetComponent<AIEnemy>().life = 15;
-                        @object.GetComponent<AIEnemy>().amountGold = 40;
-                    }
+                    GameObject @object = Instantiate(bloons, startPoint);
+                    @object.GetComponent<MeshRenderer>().material.color = Color.green;
+                    @object.GetComponent<AIEnemy>().damage = 6;
+                    @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Normal;
+                    @object.GetComponent<AIEnemy>().life = 10;
+                    @object.GetComponent<AIEnemy>().amountGold = 100;
                 }
-                else if (round >= 54)
+                else if (round >= 36 && round < 54)
                 {
-                    if (needRestart)
-                    {
-                        countBloons += maxBloons + (int)(maxBloons * 0.45f);
-                        yield return new WaitForSeconds(3f);
-                        needRestart = false;
-                    }
-                    if (countBloons < 0)
-                    {
-                        round++;
-                        needRestart = true;
-                    }
-                    else
-                    {
-                        countBloons--;
-                        GameObject @object = Instantiate(bloons, startPoint);
-                        @object.GetComponent<MeshRenderer>().material.color = Color.yellow;
-                        @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Endure;
-                        @object.GetComponent<AIEnemy>().damage = 25;
-                        @object.GetComponent<AIEnemy>().life = 50;
-                        @object.GetComponent<AIEnemy>().amountGold = 40;
-                    }
+                    GameObject @object = Instantiate(bloons, startPoint);
+                    @object.GetComponent<MeshRenderer>().material.color = Color.cyan;
+                    @object.GetComponent<AIEnemy>().damage = 8;
+                    @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.Normal;
+                    @object.GetComponent<AIEnemy>().life = 20;
+                    @object.GetComponent<AIEnemy>().amountGold = 200;
                 }
                 else
                 {
-                    if (needRestart)
-                    {
-                        countBloons += maxBloons + (int)(maxBloons * 0.5f);
-                        yield return new WaitForSeconds(3f);
-                        needRestart = false;
-                    }
-                    if (countBloons < 0)
-                    {
-                        round++;
-                        needRestart = true;
-                    }
-                    else
-                    {
-                        countBloons--;
-                        GameObject @object = Instantiate(bloons, startPoint);
-                        @object.GetComponent<MeshRenderer>().material.color = Color.cyan;
-                        @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.MOAB;
-                        @object.GetComponent<AIEnemy>().damage = 50;
-                        @object.GetComponent<AIEnemy>().life = 100;
-                        @object.GetComponent<AIEnemy>().amountGold = 500;
-                    }
+                    GameObject @object = Instantiate(bloons, startPoint);
+                    @object.GetComponent<MeshRenderer>().material.color = Color.black;
+                    @object.GetComponent<AIEnemy>().damage = 15;
+                    @object.GetComponent<AIEnemy>().type = AIEnemy.EnemyType.MOAB;
+                    @object.GetComponent<AIEnemy>().life = 35;
+                    @object.GetComponent<AIEnemy>().amountGold = 500;
                 }
+                changeRound();
             }
             yield return null;
+        }
+    }
+    public void changeRound()
+    {
+        if (countBloons <= 0)
+        {
+            round++;
+            if (round < 18)
+            {
+                countBloons = maxBloons;
+            }
+            else if (round >= 18 && round < 27)
+            {
+                countBloons = maxBloons + (int)(maxBloons * 0.2f);
+            }
+            else if (round >= 27 && round < 36)
+            {
+                countBloons = maxBloons + (int)(maxBloons * 0.3f);
+            }
+            else if (round >= 36 && round < 54)
+            {
+                countBloons = maxBloons + (int)(maxBloons * 0.4f);
+            }
+            else
+            {
+                countBloons = maxBloons + (int)(maxBloons * 0.5f);
+            }
+        }
+        else
+        {
+            countBloons--;
         }
     }
 }
